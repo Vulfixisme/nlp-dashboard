@@ -753,14 +753,6 @@ elif page == "Model Evaluation":
         X_vec_all, y_all, test_size=0.2, random_state=7, stratify=y_all
     )
 
-    model_scores = {}
-    for name, clf in [
-        ("Decision Tree",  DecisionTreeClassifier(max_depth=8, min_samples_split=4, random_state=42)),
-        ("Naive Bayes",    MultinomialNB()),
-        ("Linear SVM",     LinearSVC(max_iter=1000, random_state=42)),
-    ]:
-        clf.fit(X_tr2, y_tr2)
-        model_scores[name] = accuracy_score(y_te2, clf.predict(X_te2))
 
     best = max(model_scores.values())
     fig, ax = plt.subplots(figsize=(8, 3))

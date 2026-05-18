@@ -745,28 +745,28 @@ elif page == "Model Evaluation":
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
     fig.tight_layout(); st.pyplot(fig); plt.close()
 
-    # ── Model comparison — latih ulang dengan TF-IDF yang sama ──────────────
-    section("PERBANDINGAN MODEL")
-    X_vec_all = model["vectorizer"].transform(df["clean_text"])
-    y_all     = df["Label3"]
-    X_tr2, X_te2, y_tr2, y_te2 = train_test_split(
-        X_vec_all, y_all, test_size=0.2, random_state=7, stratify=y_all
-    )
+    # # ── Model comparison — latih ulang dengan TF-IDF yang sama ──────────────
+    # section("PERBANDINGAN MODEL")
+    # X_vec_all = model["vectorizer"].transform(df["clean_text"])
+    # y_all     = df["Label3"]
+    # X_tr2, X_te2, y_tr2, y_te2 = train_test_split(
+    #     X_vec_all, y_all, test_size=0.2, random_state=7, stratify=y_all
+    # )
 
 
-    best = max(model_scores.values())
-    fig, ax = plt.subplots(figsize=(8, 3))
-    bar_colors = [C_GREEN if v == best else C_ACCENT for v in model_scores.values()]
-    bars = ax.barh(list(model_scores.keys()), list(model_scores.values()),
-                   color=bar_colors, alpha=0.85, height=0.45)
-    for bar, val in zip(bars, model_scores.values()):
-        ax.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2,
-                f"{val*100:.1f}%", va="center", fontsize=9, color=C_TEXT)
-    ax.set_xlim(0, 1)
-    ax.set_xlabel("Accuracy", fontsize=8)
-    ax.set_title("Perbandingan Accuracy – Test Set", fontsize=9, color=C_TEXT)
-    ax.xaxis.set_major_formatter(mtick.PercentFormatter(1.0))
-    fig.tight_layout(); st.pyplot(fig); plt.close()
+    # best = max(model_scores.values())
+    # fig, ax = plt.subplots(figsize=(8, 3))
+    # bar_colors = [C_GREEN if v == best else C_ACCENT for v in model_scores.values()]
+    # bars = ax.barh(list(model_scores.keys()), list(model_scores.values()),
+    #                color=bar_colors, alpha=0.85, height=0.45)
+    # for bar, val in zip(bars, model_scores.values()):
+    #     ax.text(bar.get_width() + 0.01, bar.get_y() + bar.get_height()/2,
+    #             f"{val*100:.1f}%", va="center", fontsize=9, color=C_TEXT)
+    # ax.set_xlim(0, 1)
+    # ax.set_xlabel("Accuracy", fontsize=8)
+    # ax.set_title("Perbandingan Accuracy – Test Set", fontsize=9, color=C_TEXT)
+    # ax.xaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+    # fig.tight_layout(); st.pyplot(fig); plt.close()
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

@@ -338,7 +338,7 @@ if page == "Overview":
     c1, c2, c3, c4 = st.columns(4)
     c1.markdown(metric_card("Total Data",   str(len(df)),       "records",              C_TEXT),   unsafe_allow_html=True)
     c2.markdown(metric_card("Jumlah Kelas", "3",                "down · neutral · up",  C_MUTED),  unsafe_allow_html=True)
-    c3.markdown(metric_card("Best Model",   "DT+N-Grams",       "TF-IDF (1,2)",         C_ACCENT), unsafe_allow_html=True)
+    c3.markdown(metric_card("Best Model",   "DT+N-Grams",                C_ACCENT), unsafe_allow_html=True)
     c4.markdown(metric_card("Accuracy",     f"{model['accuracy']*100:.2f}%", "test set", C_GREEN), unsafe_allow_html=True)
 
     # ── Dataset preview ──────────────────────────────────────────────────────
